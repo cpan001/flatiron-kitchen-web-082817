@@ -1,0 +1,9 @@
+<h1>All Ingredients</h1>
+
+<%= flash[:notice] if flash[:notice] %>
+
+<ul>
+  <% @ingredients.each do |ing| %>
+  <li><%= ing.name %> | <%= link_to "Delete", ingredient_path(ing), method: "delete" %></li>
+  <% end %>
+</ul>

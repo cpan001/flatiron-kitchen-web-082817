@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "creating recipes" do
   context "on the new recipe page" do
@@ -17,8 +18,9 @@ describe "creating recipes" do
 
       fill_in 'recipe_name', with: 'Blueberry Pancakes'
       click_button('Create Recipe')
-
+      # binding.pry
       expect(Recipe.first.name).to eq("Blueberry Pancakes")
+
       expect(page).to have_content("Blueberry Pancakes")
     end
 

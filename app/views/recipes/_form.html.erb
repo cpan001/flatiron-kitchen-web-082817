@@ -1,0 +1,23 @@
+
+<% if @recipe.errors.any? %>
+There are errrors:
+<ul>
+  <% @recipe.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= form_for @recipe do |f| %>
+
+<%= f.label :name %> <br>
+<%= f.text_field :name %> <br>
+
+<br>
+
+<% Ingredient.all.each do |ing| %>
+<%= f.check_box :ingredient_names, {multiple: true, id: ing.name}, ing.name%><%= ing.name %> <br>
+<% end %>
+
+<br>
+<%= f.submit %>
+<% end %>
